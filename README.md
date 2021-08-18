@@ -1,2 +1,2 @@
-# Programming-Fundamentals-with-Python
-Python fundamentals
+# Programming-Fundamentals-with-Python - SoftUni
+My lectures, exercises, exams

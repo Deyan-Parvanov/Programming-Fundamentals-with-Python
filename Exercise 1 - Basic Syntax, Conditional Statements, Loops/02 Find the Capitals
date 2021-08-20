@@ -1,0 +1,6 @@
+text = input()
+result = []
+for l in range(len(text)):
+    if text[l].isupper():
+        result.append(l)
+print(result)

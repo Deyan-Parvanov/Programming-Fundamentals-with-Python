@@ -1,0 +1,8 @@
+text = input()
+
+result = ""
+
+for l in text:
+    result += l * 2
+
+print(result)

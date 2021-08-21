@@ -1,0 +1,7 @@
+initial_num = int(input())
+
+while True:
+    initial_num += 1
+    if len(str(initial_num)) == len(set(str(initial_num))):
+        print(initial_num)
+        break

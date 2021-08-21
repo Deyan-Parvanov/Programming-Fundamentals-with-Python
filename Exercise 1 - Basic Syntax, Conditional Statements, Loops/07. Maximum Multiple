@@ -1,0 +1,11 @@
+divisor = int(input())
+bound = int(input())
+
+num = bound
+
+while 0 < num <= bound:
+    if num % divisor == 0:
+        print(num)
+        break
+    else:
+        num -= 1

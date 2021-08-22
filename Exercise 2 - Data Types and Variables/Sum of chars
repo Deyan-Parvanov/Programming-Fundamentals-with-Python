@@ -1,0 +1,8 @@
+lines = int(input())
+
+result = 0
+while lines > 0:
+    lines -= 1
+    letter = input()
+    result += ord(letter)
+print(f"The sum equals: {result}")

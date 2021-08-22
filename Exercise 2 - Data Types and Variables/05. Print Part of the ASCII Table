@@ -1,0 +1,12 @@
+first_char = int(input())
+last_char = int(input())
+
+print(" ".join([f"{chr(char)}" for char in range(first_char, last_char + 1)]))
+
+# result = ""
+# for char in range(first_char, last_char + 1):
+#     if char == last_char:
+#         result += f"{chr(char)}"
+#     else:
+#         result += f"{chr(char)} "
+# print(result)

@@ -1,0 +1,21 @@
+import math
+num_snowballs = int(input())
+
+value_snowball = 0
+snowball_snow = 0
+snowball_time = 0
+snowball_quality = 0
+
+while num_snowballs > 0:
+    snow_snowball = int(input())
+    time_snowball = int(input())
+    quality_snowball = int(input())
+    num_snowballs -= 1
+    current_value_snowball = math.floor((snow_snowball / time_snowball) ** quality_snowball)
+    if current_value_snowball > value_snowball:
+        value_snowball = current_value_snowball
+        snowball_snow = snow_snowball
+        snowball_time = time_snowball
+        snowball_quality = quality_snowball
+
+print(f"{snowball_snow} : {snowball_time} = {value_snowball} ({snowball_quality})")

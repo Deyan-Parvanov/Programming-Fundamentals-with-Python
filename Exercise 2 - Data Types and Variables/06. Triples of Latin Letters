@@ -1,0 +1,9 @@
+import string
+n = int(input())
+
+letters = "".join([string.ascii_lowercase[l] for l in range(n)])
+
+for l_1 in letters:
+    for l_2 in letters:
+        for l_3 in letters:
+            print(f"{l_1}{l_2}{l_3}")

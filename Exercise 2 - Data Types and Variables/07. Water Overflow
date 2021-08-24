@@ -1,0 +1,13 @@
+num_of_lines = int(input())
+
+tank_capacity = 255
+liters_poured = 0
+
+while num_of_lines > 0:
+    num_of_lines -= 1
+    litters = int(input())
+    if liters_poured + litters <= tank_capacity:
+        liters_poured += litters
+    else:
+        print("Insufficient capacity!")
+print(liters_poured)

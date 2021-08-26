@@ -1,0 +1,7 @@
+nums = input().split()
+
+result = []
+for el in nums:
+    result.append(int(el)*(-1))
+
+print(result)

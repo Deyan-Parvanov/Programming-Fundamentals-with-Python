@@ -1,0 +1,27 @@
+cards = input().split()
+
+team_A = []
+team_B = []
+
+count_team_A = 11
+count_team_B = 11
+
+game_terminated = False
+
+for card in cards:
+    card.split("-")
+    if card[0] == "A":
+        if not card in team_A:
+            team_A.append(card)
+            count_team_A -= 1
+    elif card[0] == "B":
+        if not card in team_B:
+            team_B.append(card)
+            count_team_B -= 1
+    if count_team_A < 7 or count_team_B < 7:
+        game_terminated = True
+        break
+
+print(f"Team A - {count_team_A}; Team B - {count_team_B}")
+if game_terminated:
+    print("Game was terminated")

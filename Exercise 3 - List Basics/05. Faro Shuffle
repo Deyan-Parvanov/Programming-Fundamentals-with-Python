@@ -1,0 +1,19 @@
+cards = input().split()
+faro_shuffles = int(input())
+
+result = cards[1:-1]
+while faro_shuffles > 0:
+    left_side = result[:len(cards) // 2 - 1]
+    right_side = result[len(cards) // 2 - 1:]
+    result = []
+    for card in range(len(right_side)):
+        result.append(right_side[card])
+        result.append(left_side[card])
+
+    faro_shuffles -= 1
+
+final_result = [cards[0]]
+for c in result:
+    final_result.append(c)
+final_result.append(cards[-1])
+print(final_result)

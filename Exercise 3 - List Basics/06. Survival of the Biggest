@@ -1,0 +1,15 @@
+numbers = input().split()
+n = int(input())
+
+min_nums = []
+result = sorted([int(num) for num in numbers], reverse=True)
+while n > 0:
+    min_nums.append(str(result[-1]))
+    result.pop()
+    n -= 1
+
+final_result = []
+for min_num in numbers:
+    if not min_num in min_nums:
+        final_result.append(min_num)
+print(', '.join(final_result))

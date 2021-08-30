@@ -1,0 +1,14 @@
+basket = input().split(", ")
+count_of_beggars = int(input())
+
+result = []
+index = 0
+
+for beggar in range(count_of_beggars):
+    current_beggar_sum = 0
+    for beg in range(index, len(basket), count_of_beggars):
+        current_beggar_sum += int(basket[beg])
+    result.append(current_beggar_sum)
+    index += 1
+
+print(result)

@@ -1,0 +1,29 @@
+collection_of_items = input().split("|")
+budget = float(input())
+
+sell_prices = []
+sell_prices_sum = []
+total_profit = []
+for i in range(len(collection_of_items)):
+    item, price = collection_of_items[i].split("->")
+    price = float(price)
+    bought = False
+    if item == "Clothes" and price <= 50:
+        bought = True
+    elif item == "Shoes" and price <= 35:
+        bought = True
+    elif item == "Accessories" and price <= 20.5:
+        bought = True
+
+    if bought and budget >= price:
+        budget -= price
+        total_profit.append(price*1.4 - price)
+        sell_prices_sum.append(price*1.4)
+        sell_prices.append(f"{price*1.4:.2f}")
+
+print(" ".join(sell_prices))
+print(f"Profit: {sum(total_profit):.2f}")
+if budget + sum(sell_prices_sum) >= 150:
+    print("Hello, France!")
+else:
+    print("Time to go.")

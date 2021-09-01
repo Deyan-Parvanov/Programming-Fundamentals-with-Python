@@ -1,0 +1,8 @@
+data = input().split(", ")
+
+for n in range(len(data)):
+    if data[n] == "0":
+        data.remove(data[n])
+        data.extend("0")
+
+print([int(num) for num in data])

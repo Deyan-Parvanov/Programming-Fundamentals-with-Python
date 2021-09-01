@@ -1,0 +1,6 @@
+# numbers = input().split()
+#
+# numbers = sorted(numbers, reverse=True)
+# numbers = [print(int(num), end="") for num in numbers]
+
+numbers = [print(int(num), end="") for num in sorted(input().split(), reverse=True)]

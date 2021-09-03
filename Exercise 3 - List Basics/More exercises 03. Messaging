@@ -1,0 +1,27 @@
+numbers = input().split()
+characters = list(input())
+
+result = ""
+for num in numbers:
+    index_validation = False
+    index = 0
+    for n in num:
+        index += int(n)
+
+    count = 0
+    for i in range(index):
+        if len(characters) <= index:
+            index = index - len(characters)
+            count += 1
+            if count > 1:
+                index_validation = True
+        else:
+            break
+    if index_validation:
+        index = index - 1
+
+    for char in range(len(characters)):
+        if char == index:
+            result += characters[char]
+            characters.remove(characters[char])
+print(result)

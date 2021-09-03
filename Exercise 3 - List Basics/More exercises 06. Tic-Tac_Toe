@@ -1,0 +1,53 @@
+#не работи
+line_1 = [int(n_1) for n_1 in input().split()]
+line_2 = [int(n_2) for n_2 in input().split()]
+line_3 = [int(n_3) for n_3 in input().split()]
+
+#First player
+if line_2[1] == 1:
+    if line_1[1] == line_2[1] == line_3[1]: #top-bottom - middle
+        print("First player won")
+    elif line_2[0] == line_2[1] == line_2[2]: #left-right - middle
+        print("First player won")
+    elif line_1[0] == line_2[1] == line_3[2]: #top left - bottom - right - diagonal
+        print("First player won")
+    elif line_1[2] == line_2[1] == line_3[0]: #top right - bottom left - diagonal
+        print("First player won")
+
+elif line_1[0] == 1:
+    if line_1[0] == line_2[0] == line_3[0]: #top left - bottom left
+        print("First player won")
+    if line_1[0] == line_1[1] == line_2[2]: #top left - top right
+        print("First player won")
+
+elif line_3[2] == 1:
+    if line_3[2] == line_2[2] == line_1[2]: #bottom right - top right
+        print("First player won")
+    if line_3[2] == line_3[1] == line_3[0]: #bottom right - bottom left
+        print("First player won")
+
+#Second player
+elif line_2[1] == 2:
+    if line_1[1] == line_2[1] == line_3[1]:  # top-bottom - middle
+        print("Second player won")
+    elif line_2[0] == line_2[1] == line_2[2]:  # left-right - middle
+        print("Second player won")
+    elif line_1[0] == line_2[1] == line_3[2]:  # top left - bottom - right - diagonal
+        print("Second player won")
+    elif line_1[2] == line_2[1] == line_3[0]:  # top right - bottom left - diagonal
+        print("Second player won")
+
+elif line_1[0] == 1:
+    if line_1[0] == line_2[0] == line_3[0]:  # top left - bottom left
+        print("Second player won")
+    if line_1[0] == line_1[1] == line_2[2]:  # top left - top right
+        print("Second player won")
+
+elif line_3[2] == 1:
+    if line_3[2] == line_2[2] == line_1[2]:  # bottom right - top right
+        print("Second player won")
+    if line_3[2] == line_3[1] == line_3[0]:  # bottom right - bottom left
+        print("Second player won")
+
+else:
+    print("Draw!")

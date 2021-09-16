@@ -1,0 +1,19 @@
+def sum_of_odd(n):
+    total_odd = 0
+    for num in n:
+        num = int(num)
+        if num % 2 != 0:
+            total_odd += num
+    return total_odd
+
+def sum_of_even(n):
+    total_even = 0
+    for num in n:
+        num = int(num)
+        if num % 2 == 0:
+            total_even += num
+    return total_even
+
+num = input()
+
+print(f"Odd sum = {sum_of_odd(num)}, Even sum = {sum_of_even(num)}")

@@ -1,0 +1,10 @@
+numbers = input().split(", ")
+
+def polindromes(numbers):
+    for num in numbers:
+        if num == num[::-1]:
+            print("True")
+        else:
+            print("False")
+
+polindromes(numbers)

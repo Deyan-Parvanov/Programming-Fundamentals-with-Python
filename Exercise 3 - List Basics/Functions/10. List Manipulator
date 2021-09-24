@@ -1,0 +1,55 @@
+def exchange(the_list, index):
+    first_part = the_list[:index + 1]
+    second_part = the_list[index + 1:]
+    the_list = second_part + first_part
+    return the_list
+
+
+def even_or_odd_numbers(the_list, number_type):
+    if number_type == "even":
+        the_list = [x for x in the_list if x % 2 == 0]
+        return the_list
+    elif number_type == "odd":
+        the_list = [x for x in the_list if not x % 2 == 0]
+        return the_list
+
+
+numbers = input().split(" ")
+numbers = list(map(int, numbers))
+command = input()
+
+while not command == "end":
+    command = command.split(" ")
+
+    if command[0] == "exchange":
+        is_index_valid = 0 <= int(command[1]) < len(numbers)
+        if not is_index_valid:
+            print("Invalid index")
+        else:
+            numbers = exchange(numbers, int(command[1]))
+
+    elif command[0] == "max":
+        even_or_odd_list = even_or_odd_numbers(numbers, command[1])
+        print(len(numbers) - 1 - numbers[::-1].index(max(even_or_odd_list))
+              if even_or_odd_list else "No matches")
+
+    elif command[0] == "min":
+        even_or_odd_list = even_or_odd_numbers(numbers, command[1])
+        print(len(numbers) - 1 - numbers[::-1].index(min(even_or_odd_list))
+              if even_or_odd_list else "No matches")
+
+    elif command[0] == "first":
+        if len(numbers) < int(command[1]):
+            print("Invalid count")
+        else:
+            print(even_or_odd_numbers(numbers, command[2])[:int(command[1])])
+
+    elif command[0] == "last":
+        if len(numbers) < int(command[1]):
+            print("Invalid count")
+        else:
+            print(even_or_odd_numbers(numbers, command[2])[-int(command[1]):])
+
+    command = input()
+
+print(numbers)

@@ -1,0 +1,24 @@
+rooms = int(input())
+chairs = input().split()
+rooms_count = 0
+chairs_left_1 = 0
+
+while rooms_count <= rooms:
+    rooms_count += 1
+    chairs_in_room = chairs[0].count("X")
+    chairs_left = [chairs_in_room - int(chairs[1]) if chairs_in_room > int(chairs[1]) else chairs_in_room - int(chairs[1])]
+    chairs_left_1 += int(chairs_left[0])
+    if chairs_in_room < int(chairs[1]):
+        print(f"{int(chairs[1]) - chairs_in_room} more chairs needed in room {rooms_count}")
+
+    # if chairs_in_room > int(chairs[1]):
+    #     chairs_left += chairs_in_room - int(chairs[1])
+    # elif chairs_in_room < int(chairs[1]):
+    #     chairs_left -= int(chairs[1]) - chairs_in_room
+    #     print(f"{int(chairs[1]) - chairs_in_room} more chairs needed in room {rooms_count}")
+    if rooms_count == rooms:
+        break
+    chairs = input().split()
+
+if chairs_left_1 >= 0:
+    print(f"Game On, {chairs_left_1} free chairs left")

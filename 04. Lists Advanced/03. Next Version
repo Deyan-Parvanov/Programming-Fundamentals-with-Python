@@ -1,0 +1,32 @@
+version = input().split(".")
+version = [int(i) for i in version]
+
+if version[1] >= 9:
+    if version[2] >= 9:
+        version[0] += 1
+        version[1] = 0
+        version[2] = 0
+    else:
+        version[2] += 1
+else:
+    if version[2] >= 9:
+        version[1] += 1
+        version[2] = 0
+    else:
+        version[2] += 1
+version = [str(i) for i in version]
+print(".".join(version))
+
+# друго решение:
+# old_version = "".join(map(str, input().split(".")))
+#
+# new_version = ".".join(str(int(old_version) + 1))
+# print(new_version)
+
+# друго решение
+# version = input().split(".")
+# new = int("".join(version))
+# new_version = int(new + 1)
+# print(".".join(str(new_version)))
+
+

@@ -1,0 +1,16 @@
+import math
+nums = input().split(", ")
+nums_in_int = [int(num) for num in nums]
+max_num = math.ceil(max(nums_in_int) / 10)
+
+group = 10
+
+for gr in range(max_num):
+    nums_in_group = []
+    # nums = [nums_in_group.append(int(n)) for n in nums if group - 10 < int(n) <= group] - Защо не работи?
+    for n in nums:
+        if group - 10 < int(n) <= group:
+            nums_in_group.append(int(n))
+    print(f"Group of {group}'s: {nums_in_group}")
+    nums_in_group.clear()
+    group += 10

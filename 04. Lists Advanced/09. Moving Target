@@ -1,0 +1,41 @@
+def shoot(i, p):
+    if i in range(len(targets)):
+        targets[i] -= p
+        if targets[i] <= 0:
+            targets.remove(targets[i])
+
+def add(i, v):
+    if i in range(len(targets)):
+        targets.insert(i, v)
+    else:
+        print("Invalid placement!")
+
+def strike(i, r):
+    if not i+r in range(len(targets)) or not i-r in range(len(targets)):
+        print("Strike missed!")
+        return targets
+    else:
+        left_side = targets[:i-r]
+        right_side = targets[i+r+1:]
+        targets.remove(targets[i])
+        return left_side + right_side
+
+targets = [int(num) for num in input().split()]
+command = input()
+
+while not command == "End":
+    action, index, value = command.split()
+    index = int(index)
+    value = int(value)
+    if action == "Shoot":
+        shoot(index, value)
+    elif action == "Add":
+        add(index, value)
+    elif action == "Strike":
+        targets = strike(index, value)
+
+    command = input()
+
+targets = list(map(lambda x: str(x), targets))
+
+print("|".join(targets))

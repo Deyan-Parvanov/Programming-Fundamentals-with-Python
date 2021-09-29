@@ -1,0 +1,24 @@
+message = input().split()
+
+result = []
+for word in message:
+    digit = [letter for letter in word if letter.isdigit()]
+    digit = ''.join(digit)
+    # digit = ''
+    # for letter in word:
+    #     if letter.isdigit():
+    #         digit += letter
+    word = word.replace(digit, chr(int(digit)))
+
+    final_word = ""
+    for i in range(len(word)):
+        if i == 1:
+            final_word += word[-1]
+        elif i == len(word) - 1:
+            final_word += word[1]
+        else:
+            final_word += word[i]
+
+    result.append(final_word)
+
+print(' '.join(result))

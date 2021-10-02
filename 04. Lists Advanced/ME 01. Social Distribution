@@ -1,0 +1,20 @@
+population = [int(num) for num in input().split(", ")]
+minimum_wealth = int(input())
+
+for n in population:
+    if n < minimum_wealth:
+        max_num = max(population)
+        if max_num - (minimum_wealth - n) < minimum_wealth:
+            print("No equal distribution possible")
+            exit()
+        index_max_num = population.index(max_num)
+        population[population.index(n)] += minimum_wealth - n
+        population[index_max_num] -= minimum_wealth - n
+
+# not_equal_distribution_possible = [number for number in population if number < minimum_wealth]
+# if len(not_equal_distribution_possible) > 0:
+min_num = min(population)
+if min_num < minimum_wealth:
+    print("No equal distribution possible")
+else:
+    print(population)

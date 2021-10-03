@@ -1,0 +1,26 @@
+field_rows = [input().split() for _ in range(int(input()))]
+field = [''.join(line) for line in field_rows]
+attacks = input().split()
+
+destroyed_ships = 0
+for attack in attacks:
+    r, c = attack.split("-")
+    row = int(r)
+    column = int(c)
+    for i in range(len(field[row])):
+        if i == row:
+            for col in range(len(field[i])):
+                if col == column:
+                    field[i].split()
+                    num_field = [int(pos) for pos in field[i]]
+                    if num_field[column] > 0:
+                        num_field[column] -= 1
+                        if num_field[column] == 0:
+                            destroyed_ships += 1
+
+                        replace_num = ''
+                        for num in num_field:
+                            replace_num += str(num)
+                        field.remove(field[i])
+                        field.insert(i, replace_num)
+print(destroyed_ships)

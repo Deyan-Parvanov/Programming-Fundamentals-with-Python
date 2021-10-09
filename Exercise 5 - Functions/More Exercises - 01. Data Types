@@ -1,0 +1,24 @@
+def integer(num):
+    num = num * 2
+    return num
+
+def real(num):
+    num = num * 1.5
+    return f"{num:.2f}"
+
+def text(string):
+    return f"${string}$"
+
+data_type = input()
+data = input()
+
+if data_type == "int":
+    data = int(data)
+    print(integer(data))
+
+elif data_type == "real":
+    data = float(data)
+    print(real(data))
+
+elif data_type == "string":
+    print(text(data))

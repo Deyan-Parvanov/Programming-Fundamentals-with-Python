@@ -1,0 +1,26 @@
+commands = int(input())
+
+registered_cars = {}
+
+for _ in range(commands):
+    data = input().split()
+    command = data[0]
+    name = data[1]
+
+    if command == "register":
+        reg_number = data[2]
+        if name not in registered_cars:
+            registered_cars[name] = reg_number
+            print(f"{name} registered {reg_number} successfully")
+        else:
+            print(f"ERROR: already registered with plate number {registered_cars[name]}")
+
+    else:
+        if name not in registered_cars:
+            print(f"ERROR: user {name} not found")
+        else:
+            registered_cars.pop(name)
+            print(f"{name} unregistered successfully")
+
+for name, number in registered_cars.items():
+    print(f"{name} => {number}")

@@ -1,0 +1,49 @@
+resources = input().split()
+
+obtained = False
+materials = {}
+junk = 0
+shards = 0
+fragments = 0
+motes = 0
+
+while not obtained:
+    for item in range(0, len(resources), 2):
+        if resources[item+1] not in materials:
+            materials[resources[item + 1].lower()] = int(resources[item])
+        else:
+            materials[resources[item + 1].lower()] += int(resources[item])
+
+        for item, value in materials.items():
+            if item == "shards":
+                shards += value
+                if shards >= 250:
+                    shards -= 250
+                    print("Shadowmourne obtained!")
+                    obtained = True
+                    break
+
+            elif item == "fragments":
+                fragments += value
+                if fragments >= 250:
+                    fragments -= 250
+                    print("Valanyr obtained!")
+                    obtained = True
+                    break
+
+            elif item == "motes":
+                motes += value
+                if motes >= 250:
+                    motes -= 250
+                    print("Dragonwrath obtained!")
+                    obtained = True
+                    break
+            else:
+                junk += value
+        if obtained == True:
+            break
+    if obtained == True:
+        break
+    resources = input().split()
+print(materials)
+

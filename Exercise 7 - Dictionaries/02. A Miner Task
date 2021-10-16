@@ -1,0 +1,16 @@
+items = input()
+
+output = {}
+
+while not items == "stop":
+    quantity = int(input())
+
+    if items in output:
+        output[items] += quantity
+    else:
+        output[items] = quantity
+
+    items = input()
+
+for item, value in output.items():
+    print(f"{item} –> {value}")

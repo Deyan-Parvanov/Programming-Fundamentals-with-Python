@@ -1,0 +1,9 @@
+char = input()
+
+result = {}
+
+for c in char:
+    if c not in result:
+        if not c == " ":
+            result[c] = char.count(c)
+            print(f"{c} -> {char.count(c)}")

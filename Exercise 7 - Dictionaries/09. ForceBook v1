@@ -1,0 +1,30 @@
+data = input()
+
+output = {}
+
+while not data == "Lumpawaroo":
+    if "|" in data:
+        force_side, force_user = data.split(" | ")
+        if force_user not in output:
+            output[force_side] = []
+            output[force_side].append(force_user)
+
+    elif "->" in data:
+        force_user, force_side = data.split(" -> ")
+        for side, user in output.items():
+            if force_user in user:
+                output[side].remove(force_user)
+
+        if force_user not in output[force_side]:
+            output[force_side].append(force_user)
+            print(f"{force_user} joins the {force_side} side!")
+
+    data = input()
+
+ordered_forces = sorted(output.items(), key=lambda x: (-len(x[1]), x[0]))
+
+for side, users in ordered_forces:
+    if len(users) > 0:
+        print(f"Side: {side}, Members: {len(users)}")
+        for user in sorted(users):
+            print(f"! {user}")

@@ -1,0 +1,41 @@
+exam_result = input()
+
+results = {}
+language_submissions = {}
+
+while not exam_result == "exam finished":
+    data = exam_result.split("-")
+    if len(data) > 2:
+        username, language, points = exam_result.split("-")
+        points = int(points)
+        if language not in language_submissions:
+            language_submissions[language] = []
+        if username not in results:
+            results[username] = []
+            results[username].append(language)
+            results[username].append(points)
+            language_submissions[language].append(points)
+        else:
+            if not language in results[username][0]:
+                results[username] += []
+                results[username].append(language)
+                results[username].append(points)
+                language_submissions[language].append(points)
+            else:
+                language_submissions[language].append(points)
+                if points > results[username][1]:
+                    results[language].append(points)
+
+    else:
+        username = exam_result.split("-")[0]
+        results.pop(username)
+
+    exam_result = input()
+
+print("Results:")
+for name, points in sorted(results.items(), key=lambda x: (-x[1][1], x[0])):
+    print(f"{name} | {points[1]}")
+
+print("Submissions:")
+for language, points in sorted(language_submissions.items(), key=lambda x: (x[0], x[1])):
+    print(f"{language} – {len(language_submissions[language])}")

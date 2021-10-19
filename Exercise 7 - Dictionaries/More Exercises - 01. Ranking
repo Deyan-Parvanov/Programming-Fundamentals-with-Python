@@ -1,0 +1,52 @@
+contests_passwords = input()
+
+contests = {}
+
+while not contests_passwords == "end of contests":
+    contest, password = contests_passwords.split(":")
+    contests[contest] = password
+
+    contests_passwords = input()
+
+username_pints = input()
+
+valid_results = {}
+students_points = {}
+base_points = 0
+
+while not username_pints == "end of submissions":
+    contest_1, password_1, username, points = username_pints.split("=>")
+    result_is_valid = False
+    points = int(points)
+    max_points = False
+    delta = 0
+    if contest_1 in contests:
+        if password_1 in contests.values():
+            result_is_valid = True
+
+    if result_is_valid == True:
+        if username in valid_results.keys():
+            valid_results[username] += [contest_1]
+        else:
+            valid_results[username] = []
+            valid_results[username] += [contest_1]
+        for name, value in valid_results.items():
+            if username == name:
+                for i in valid_results[username]:
+                    if i == contest_1:
+                        if i > points:
+                            max_points = True
+                            delta = int(i+1) - points
+
+        if max_points == True:
+            valid_results[username] += [points]
+            if username in students_points.keys():
+                students_points[username][0] += delta
+            else:
+                students_points[username] = []
+                students_points[username] += [points]
+
+    username_pints = input()
+
+print(students_points)
+a=5

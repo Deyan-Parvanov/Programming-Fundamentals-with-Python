@@ -1,0 +1,33 @@
+strings = input().split(" ")
+
+left_side = strings[0]
+right_side = strings[1]
+
+result = 0
+index = 0
+
+left_nums = []
+for char in left_side:
+    left_nums.append(ord(char))
+
+right_nums = []
+for char_1 in right_side:
+    right_nums.append(ord(char_1))
+
+for i in right_side:
+    if len(left_nums) == 0 or len(right_nums) == 0:
+        break
+    right_num = ord(i)
+    result += right_num * left_nums[index]
+    left_nums.remove(left_nums[index])
+    right_nums.remove(right_nums[index])
+
+if len(left_nums) > 0:
+    for l in left_nums:
+        result += l
+
+if len(right_nums) > 0:
+    for r in right_nums:
+        result += r
+
+print(result)

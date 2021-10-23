@@ -1,0 +1,22 @@
+# line = input()
+# index = 0
+# result = ""
+#
+# while index < len(line) - 1:
+#     if line[index] == line[index + 1]:
+#         line = line.replace(line[index + 1], "", 1)
+#         #проблемът е, че на Python функцията replace заменя всички
+#         дадени символи в стринга. За това слагаме 1-цата накрая, за да вземе само първия
+#     else:
+#         index += 1
+#
+# print(line)
+
+data = input()
+new_data = ""
+for i in range(len(data)):
+    if data[i] == data[i - 1] and not i == 0:
+        continue
+    else:
+        new_data += data[i]
+print(new_data)

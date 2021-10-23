@@ -1,0 +1,8 @@
+text = input()
+
+for l in range(len(text)):
+    if text[l] == ":":
+        print(f":{text[l+1]}")
+
+# result = (f":{text[l+1]}" for l in range(len(text)) if text[l] == ":")
+# print(result)

@@ -1,0 +1,12 @@
+user_names = input().split(", ")
+
+for user in user_names:
+    result = ""
+    if 3 <= len(user) <= 16:
+        for i in user:
+            if i.isdigit() or i.isalpha() or i == "-" or i == "_":
+                result += i
+            else:
+                break
+        if not result == "":
+            print(result)

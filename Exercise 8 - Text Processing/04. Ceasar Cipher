@@ -1,0 +1,33 @@
+text = input()
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+encrypted_text = ""
+upper_letter = False
+
+for char in text:
+    if char.isupper() and char.isalpha():
+        char = char.lower()
+        upper_letter = True
+
+    if char in alphabet:
+        index = alphabet.index(char) + 3
+
+        if len(alphabet) < index:
+            symbol = chr(ord(char) + 3)
+            encrypted_text += symbol
+
+        if upper_letter is True:
+            encrypted_text += alphabet[index].upper()
+            upper_letter = False
+        elif len(alphabet) >= index:
+            encrypted_text += alphabet[index]
+
+    if char.isdigit():
+        digit = int(char) + 3
+        encrypted_text += str(digit)
+
+    if not char.isdigit() and not char.isalpha():
+        symbol = chr(ord(char) + 3)
+        encrypted_text += symbol
+
+print(encrypted_text)

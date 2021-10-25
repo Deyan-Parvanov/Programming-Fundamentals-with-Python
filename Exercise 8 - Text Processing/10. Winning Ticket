@@ -1,0 +1,36 @@
+def winning(win_symbol, left, right, ticket):
+    if win_symbol * 10 in left and win_symbol * 10 in right:
+        return print(f'ticket "{ticket}" - 10{win_symbol} Jackpot!')
+    if win_symbol * 6 in left and win_symbol * 6 in right:
+        match_length_left = [s for s in left if s == win_symbol]
+        match_length_right = [s for s in right if s == win_symbol]
+        if not len(match_length_left) == len(match_length_right):
+            return print(f'ticket "{ticket}" - no match')
+        return print(f'ticket "{ticket}" - {len(match_length_left)}{win_symbol}')
+    else:
+        return print(f'ticket "{ticket}" - no match')
+
+tickets = input().split(", ")
+
+for ticket in tickets:
+    ticket = ticket.strip()
+    if not len(ticket) == 20:
+        print("invalid ticket")
+    else:
+        left_side = ticket[0:10]
+        right_side = ticket[10:20]
+
+        if left_side.count("@") >= 6 and right_side.count("@") >= 6:
+            winning("@", left_side, right_side, ticket)
+            continue
+        if left_side.count("#") >= 6 and right_side.count("#") >= 6:
+            winning("#", left_side, right_side, ticket)
+            continue
+        if left_side.count("$") >= 6 and right_side.count("$") >= 6:
+            winning("$", left_side, right_side, ticket)
+            continue
+        if left_side.count("^") >= 6 and right_side.count("^") >= 6:
+            winning("^", left_side, right_side, ticket)
+            continue
+
+        print(f'ticket "{ticket}" - no match')

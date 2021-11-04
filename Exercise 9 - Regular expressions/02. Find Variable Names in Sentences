@@ -1,0 +1,15 @@
+# import re
+#
+# pattern = r"\b[_]([a-zA-Z]+)\b"
+# text = input()
+#
+# variable_names = re.findall(pattern, text)
+# print(','.join(variable_names))
+
+#от упражнението:
+import re
+pattern = r"(^_|(?<=\s_))[a-zA-Z0-9]+\b"
+text = input()
+
+valid_variables = [obj.group() for obj in re.finditer(pattern, text)]
+print(*valid_variables, sep=",")
